@@ -6,5 +6,6 @@ package fr.unice.polytech.transmission;
 public enum Type {
     ADD,
     JOIN,
-    LIST;
+    PARTICIPANT_LIST,
+    IDEA_LIST;
 }

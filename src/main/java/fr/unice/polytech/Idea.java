@@ -13,7 +13,7 @@ public class Idea implements Serializable {
     private final List<Techno> technos;
     private final Student author;
 
-    protected Idea() {this("", new ArrayList<Techno>(), new Student());}
+    public Idea() {this("", new ArrayList<Techno>(), new Student());}
 
     public Idea(String description, List<Techno> technos, Student author) {
         this.description = description;

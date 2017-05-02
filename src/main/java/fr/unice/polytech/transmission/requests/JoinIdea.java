@@ -7,13 +7,21 @@ import fr.unice.polytech.transmission.Type;
 /**
  * Created by user on 26/04/2017.
  */
-public class JoinIdea extends Request {
+public class JoinIdea implements Request {
+
     private final Idea idea;
     private final Student student;
 
+    public JoinIdea() {
+        this(new Idea(), new Student());
+    }
+
     public JoinIdea(Idea idea, Student student) {
-        super(Type.JOIN);
         this.idea = idea;
         this.student = student;
+    }
+
+    public Type getType() {
+        return Type.JOIN;
     }
 }

@@ -6,11 +6,18 @@ import fr.unice.polytech.transmission.Type;
 /**
  * Created by user on 26/04/2017.
  */
-public class AddIdea extends Request{
+public class AddIdea implements Request{
     private final Idea idea;
 
+    public AddIdea() {
+        this(new Idea());
+    }
+
     public AddIdea(Idea idea) {
-        super(Type.ADD);
         this.idea = idea;
+    }
+
+    public Type getType() {
+        return Type.ADD;
     }
 }
