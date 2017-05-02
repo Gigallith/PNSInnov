@@ -6,5 +6,13 @@ import fr.unice.polytech.transmission.Type;
  * Created by user on 26/04/2017.
  */
 public class Request {
-    Type type;
+    private final Type type;
+
+    public Request(Type type) {
+        this.type = type;
+    }
+
+    public Type getType() {
+        return type;
+    }
 }

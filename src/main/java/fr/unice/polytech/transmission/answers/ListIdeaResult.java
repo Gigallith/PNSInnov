@@ -6,5 +6,9 @@ import fr.unice.polytech.Project;
  * Created by user on 02/05/2017.
  */
 public class ListIdeaResult {
-    Project projects;
+    private final Project projects;
+
+    public ListIdeaResult(Project projects) {
+        this.projects = projects;
+    }
 }
