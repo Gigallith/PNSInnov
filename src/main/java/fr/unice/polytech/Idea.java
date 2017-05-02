@@ -1,6 +1,7 @@
 package fr.unice.polytech;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,7 +9,15 @@ import java.util.List;
  */
 public class Idea implements Serializable {
 
-    String description;
-    List<Techno> technos;
-    Student author;
+    private final String description;
+    private final List<Techno> technos;
+    private final Student author;
+
+    protected Idea() {this("", new ArrayList<Techno>(), new Student());}
+
+    public Idea(String description, List<Techno> technos, Student author) {
+        this.description = description;
+        this.technos = technos;
+        this.author = author;
+    }
 }
