@@ -1,3 +1,5 @@
+package fr.unice.polytech;
+
 import java.io.Serializable;
 
 /**
