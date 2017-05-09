@@ -50,12 +50,10 @@ public class Client implements Runnable
         {
             out.writeObject(requests[argument.ordinal()]);
 
-            System.out.println(((JoinIdeaResult) in.readObject()).getRespondingCode().getCode());
+
 
             socket.close();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
