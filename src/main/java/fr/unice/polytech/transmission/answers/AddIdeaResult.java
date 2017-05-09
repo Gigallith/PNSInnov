@@ -18,6 +18,10 @@ public class AddIdeaResult implements Answer {
         return Type.ADD;
     }
 
+    public RespondingCode getRespondingCode() {
+        return rc;
+    }
+
     @Override
     public String toString() {
         return "AddIdeaResult{" +

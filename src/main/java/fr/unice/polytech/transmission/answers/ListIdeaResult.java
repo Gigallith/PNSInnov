@@ -23,6 +23,10 @@ public class ListIdeaResult implements Answer {
         this.rc = rc;
     }
 
+    public RespondingCode getRespondingCode() {
+        return rc;
+    }
+
     public Type getType() {
         return Type.IDEA_LIST;
     }
