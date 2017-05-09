@@ -17,15 +17,13 @@ import java.util.HashSet;
  * @author Marion
  */
 public class Server extends Thread{
-    private final ServerSocket serverSocket;
     private final Socket socket;
     private final ObjectOutputStream out;
     private final ObjectInputStream in;
     private final Project project;
 
-    public Server(int port) throws IOException {
-        serverSocket = new ServerSocket(port);
-        socket = serverSocket.accept();
+    public Server(Socket socket, int port) throws IOException {
+        this.socket = socket;
         out = new ObjectOutputStream(new PrintStream(socket.getOutputStream()));
         in = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
         project = new Project();
@@ -55,7 +53,6 @@ public class Server extends Thread{
                     out.writeObject(new ListParticipantResult(new RespondingCode(0),project.getStudentListOfAProject(listPartcipant.getIdea())));
             }
             socket.close();
-            serverSocket.close();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -64,7 +61,19 @@ public class Server extends Thread{
     }
 
     public static void main(String[] args) throws IOException {
-        Server server = new Server(15555);
-        server.run();
+
+        ServerSocket serverSocket = null;
+        boolean listening = true;
+        try {
+            serverSocket = new ServerSocket(15555);
+        } catch (IOException e) {
+            System.err.println("Could not listen on port: 15555.");
+            System.exit(-1);
+        }
+        while (listening) {
+            Server server = new Server(serverSocket.accept(), 15555);
+            server.run();
+        }
+        serverSocket.close();
     }
 }
