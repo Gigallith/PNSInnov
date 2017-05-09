@@ -22,11 +22,11 @@ public class Server extends Thread{
     private final ObjectInputStream in;
     private final Project project;
 
-    public Server(Socket socket, int port) throws IOException {
+    public Server(Socket socket, int port, Project project) throws IOException {
         this.socket = socket;
         out = new ObjectOutputStream(new PrintStream(socket.getOutputStream()));
         in = new ObjectInputStream(new BufferedInputStream(socket.getInputStream()));
-        project = new Project();
+        this.project = project;
     }
 
     public void run(){
@@ -51,6 +51,10 @@ public class Server extends Thread{
                 case PARTICIPANT_LIST:
                     ListParticipant listPartcipant = (ListParticipant) request;
                     out.writeObject(new ListParticipantResult(new RespondingCode(0),project.getStudentListOfAProject(listPartcipant.getIdea())));
+                    break;
+                default:
+                    out.writeObject(new JoinIdeaResult(new RespondingCode(5)));
+                    break;
             }
             socket.close();
         } catch (IOException e) {
@@ -63,6 +67,7 @@ public class Server extends Thread{
     public static void main(String[] args) throws IOException {
 
         ServerSocket serverSocket = null;
+        Project project = new Project();
         boolean listening = true;
         try {
             serverSocket = new ServerSocket(15555);
@@ -71,7 +76,7 @@ public class Server extends Thread{
             System.exit(-1);
         }
         while (listening) {
-            Server server = new Server(serverSocket.accept(), 15555);
+            Server server = new Server(serverSocket.accept(), 15555, project);
             server.run();
         }
         serverSocket.close();
