@@ -63,7 +63,8 @@ public class Client implements Runnable
         if ( args.length != 1)
             throw new IllegalArgumentException();
         Type argument = Type.valueOf(args[0]);
-        Client client = new Client(null, 15555, argument);
+        Client client = new Client("10.212.127.229", 15555, argument);
+        //Client client = new Client(null, 15555, argument);
         new Thread(client).start();
     }
 

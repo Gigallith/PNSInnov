@@ -26,6 +26,10 @@ public class ListParticipantResult implements Answer {
         return Type.PARTICIPANT_LIST;
     }
 
+    public RespondingCode getRespondingCode() {
+        return rc;
+    }
+
     @Override
     public String toString() {
         return "ListParticipantResult{" +
