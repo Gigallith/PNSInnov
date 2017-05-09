@@ -26,4 +26,12 @@ public class ListIdeaResult implements Answer {
     public Type getType() {
         return Type.IDEA_LIST;
     }
+
+    @Override
+    public String toString() {
+        return "ListIdeaResult{" +
+                "rc=" + rc +
+                ", ideas=" + ideas +
+                '}';
+    }
 }

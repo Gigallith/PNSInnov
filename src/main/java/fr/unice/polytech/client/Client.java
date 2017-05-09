@@ -3,10 +3,10 @@ package fr.unice.polytech.client;
 import fr.unice.polytech.Idea;
 import fr.unice.polytech.Student;
 import fr.unice.polytech.Techno;
-import fr.unice.polytech.transmission.answers.JoinIdeaResult;
+import fr.unice.polytech.transmission.Type;
 import fr.unice.polytech.transmission.requests.AddIdea;
 import fr.unice.polytech.transmission.requests.JoinIdea;
-import fr.unice.polytech.transmission.requests.ListParticipants;
+import fr.unice.polytech.transmission.requests.ListParticipant;
 
 import fr.unice.polytech.transmission.requests.ListIdea;
 import fr.unice.polytech.transmission.requests.Request;
@@ -23,9 +23,9 @@ public class Client implements Runnable
     private final Socket socket;
     private final ObjectOutputStream out;
     private final ObjectInputStream in;
-    private final Argument argument;
+    private final Type argument;
 
-    public Client(String host, int port, Argument argument) throws IOException
+    public Client(String host, int port, Type argument) throws IOException
     {
         this.argument = argument;
         socket = new Socket(host, port);
@@ -37,39 +37,34 @@ public class Client implements Runnable
 
     public void run()
     {
-        Student nicola = new Student("Nicola", "nicola@bonnenuit.les petits");
-        Student pimprenelle = new Student("Pimprenelle", "pimprenelle@bonnenuit.les petits");
-        Student nounours = new Student("Nouours", "nounours@bonnenuit.les petits");
-        Student oscar = new Student("Oscar", "oscar@bonnenuit.les petits");
+        Student nicola = new Student("Nicola", "nicola@bonnenuit.lespetits");
+        Student pimprenelle = new Student("Pimprenelle", "pimprenelle@bonnenuit.lespetits");
+        Student nounours = new Student("Nouours", "nounours@bonnenuit.lespetits");
+        Student oscar = new Student("Oscar", "oscar@bonnenuit.lespetits");
 
         Idea idea = new Idea("Nicola et Oscar font la bagare", Arrays.asList(Techno.JAVA), pimprenelle);
 
-        Request[] requests = {new AddIdea(idea), new JoinIdea(idea, nounours), new ListParticipants(idea), new ListIdea()};
+        Request[] requests = {new AddIdea(idea), new JoinIdea(idea, nounours), new ListParticipant(idea), new ListIdea()};
 
         try
         {
             out.writeObject(requests[argument.ordinal()]);
-
-
-
+            System.out.println(in.readObject());
             socket.close();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
     }
 
-    public static void main(String[] args) throws IOException
-    {
-        if (args.length != 1)
+    public static void main(String[] args) throws IOException {
+        if ( args.length != 1)
             throw new IllegalArgumentException();
-        Argument argument = Argument.valueOf(args[0]);
+        Type argument = Type.valueOf(args[0]);
         Client client = new Client(null, 15555, argument);
         new Thread(client).start();
     }
 
-    private enum Argument
-    {
-        ADD, JOIN, PART, IDEA
-    }
 }

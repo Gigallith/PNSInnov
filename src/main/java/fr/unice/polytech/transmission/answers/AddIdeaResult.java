@@ -17,4 +17,11 @@ public class AddIdeaResult implements Answer {
     public Type getType() {
         return Type.ADD;
     }
+
+    @Override
+    public String toString() {
+        return "AddIdeaResult{" +
+                "rc=" + rc +
+                '}';
+    }
 }

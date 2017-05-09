@@ -20,4 +20,8 @@ public class AddIdea implements Request{
     public Type getType() {
         return Type.ADD;
     }
+
+    public Idea getIdea() {
+        return idea;
+    }
 }

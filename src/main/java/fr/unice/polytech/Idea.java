@@ -20,4 +20,13 @@ public class Idea implements Serializable {
         this.technos = technos;
         this.author = author;
     }
+
+    @Override
+    public String toString() {
+        return "Idea{" +
+                "description='" + description + '\'' +
+                ", technos=" + technos +
+                ", author=" + author +
+                '}';
+    }
 }

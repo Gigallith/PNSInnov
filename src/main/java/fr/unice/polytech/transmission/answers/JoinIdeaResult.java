@@ -23,4 +23,11 @@ public class JoinIdeaResult implements Answer {
     public RespondingCode getRespondingCode() {
         return rc;
     }
+
+    @Override
+    public String toString() {
+        return "JoinIdeaResult{" +
+                "rc=" + rc +
+                '}';
+    }
 }

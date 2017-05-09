@@ -1,9 +1,11 @@
 package fr.unice.polytech.transmission.answers;
 
+import java.io.Serializable;
+
 /**
  * Created by user on 02/05/2017.
  */
-public class RespondingCode {
+public class RespondingCode implements Serializable {
     int code;
 
     public RespondingCode() {
@@ -14,6 +16,12 @@ public class RespondingCode {
         this.code = code;
     }
 
+    @Override
+    public String toString() {
+        return "RespondingCode{" +
+                "code=" + code +
+                '}';
+    }
 
     public int getCode() {
         return code;

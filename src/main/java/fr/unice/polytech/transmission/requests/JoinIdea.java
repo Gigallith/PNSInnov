@@ -24,4 +24,12 @@ public class JoinIdea implements Request {
     public Type getType() {
         return Type.JOIN;
     }
+
+    public Idea getIdea() {
+        return idea;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
 }
