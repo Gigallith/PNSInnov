@@ -44,7 +44,7 @@ public class Client implements Runnable
 
         Idea idea = new Idea("Nicola et Oscar font la bagare", Arrays.asList(Techno.JAVA), pimprenelle);
 
-        Request[] requests = {new AddIdea(idea), new JoinIdea(idea, nounours), new ListParticipant(idea), new ListIdea()};
+        Request[] requests = {new AddIdea(idea), new JoinIdea(nounours, idea), new ListParticipant(idea), new ListIdea()};
 
         try
         {

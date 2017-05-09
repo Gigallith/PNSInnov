@@ -13,10 +13,10 @@ public class JoinIdea implements Request {
     private final Student student;
 
     public JoinIdea() {
-        this(new Idea(), new Student());
+        this(new Student(), new Idea());
     }
 
-    public JoinIdea(Idea idea, Student student) {
+    public JoinIdea(Student student, Idea idea) {
         this.idea = idea;
         this.student = student;
     }

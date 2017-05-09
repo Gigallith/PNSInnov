@@ -19,13 +19,13 @@ import java.util.logging.Logger;
  * @author Gaetan Vialon
  *         Created the 02/05/2017.
  */
-public class MyServerThreadGaetan extends Thread {
+public class MyServerThread extends Thread {
 
     private Socket socket;
     private Project project;
-    private static final Logger LOGGER = Logger.getLogger(MultiServerGaetan.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(MultiServer.class.getName());
 
-    public MyServerThreadGaetan(Socket socket, Project project) {
+    public MyServerThread(Socket socket, Project project) {
         super("MyServerThread");
         this.socket = socket;
         this.project = project;

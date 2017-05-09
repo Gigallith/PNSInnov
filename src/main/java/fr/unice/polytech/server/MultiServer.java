@@ -9,7 +9,7 @@ import java.net.ServerSocket;
  * @author Gaetan Vialon
  *         Created the 02/05/2017.
  */
-public class MultiServerGaetan {
+public class MultiServer {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
@@ -22,7 +22,7 @@ public class MultiServerGaetan {
             System.exit(-1);
         }
         while (listening)
-            new MyServerThreadGaetan(serverSocket.accept(), project).start();
+            new MyServerThread(serverSocket.accept(), project).start();
         serverSocket.close();
     }
 }
