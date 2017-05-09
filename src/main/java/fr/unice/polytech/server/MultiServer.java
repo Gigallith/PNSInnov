@@ -1,6 +1,6 @@
 package fr.unice.polytech.server;
 
-import fr.unice.polytech.Project;
+import fr.unice.polytech.old.Project;
 
 import java.io.IOException;
 import java.net.ServerSocket;
