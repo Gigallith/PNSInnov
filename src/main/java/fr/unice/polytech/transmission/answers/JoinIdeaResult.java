@@ -9,7 +9,7 @@ import fr.unice.polytech.transmission.Type;
 public class JoinIdeaResult implements Answer {
     private final RespondingCode rc;
 
-    protected JoinIdeaResult() {this(new RespondingCode());}
+    public JoinIdeaResult() {this(new RespondingCode());}
 
     public JoinIdeaResult(RespondingCode rc) {
         this.rc = rc;
