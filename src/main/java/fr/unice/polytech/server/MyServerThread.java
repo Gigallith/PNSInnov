@@ -1,3 +1,4 @@
+/*
 package fr.unice.polytech.server;
 
 import fr.unice.polytech.old.Project;
@@ -15,10 +16,12 @@ import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+*/
 /**
  * @author Gaetan Vialon
  *         Created the 02/05/2017.
- */
+ *//*
+
 public class MyServerThread extends Thread {
 
     private Socket socket;
@@ -103,4 +106,4 @@ public class MyServerThread extends Thread {
         }
     }
 
-}
+}*/

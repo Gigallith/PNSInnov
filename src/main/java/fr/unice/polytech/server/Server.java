@@ -1,11 +1,11 @@
 package fr.unice.polytech.server;
 
-import fr.unice.polytech.old.Project;
-import fr.unice.polytech.old.transmission.answers.*;
-import fr.unice.polytech.old.transmission.requests.AddIdea;
-import fr.unice.polytech.old.transmission.requests.JoinIdea;
-import fr.unice.polytech.old.transmission.requests.ListParticipant;
-import fr.unice.polytech.old.transmission.requests.Request;
+import fr.unice.polytech.Project;
+import fr.unice.polytech.transmission.answers.*;
+import fr.unice.polytech.transmission.requests.AddIdea;
+import fr.unice.polytech.transmission.requests.JoinIdea;
+import fr.unice.polytech.transmission.requests.ListParticipant;
+import fr.unice.polytech.transmission.requests.Request;
 
 import java.io.*;
 import java.net.ServerSocket;
