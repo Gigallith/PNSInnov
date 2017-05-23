@@ -25,10 +25,10 @@ import java.util.logging.Logger;
 public class MyServerThread extends Thread {
 
     private Socket socket;
-    private Project project;
+    private RimRequest project;
     private static final Logger LOGGER = Logger.getLogger(MultiServer.class.getName());
 
-    public MyServerThread(Socket socket, Project project) {
+    public MyServerThread(Socket socket, RimRequest project) {
         super("MyServerThread");
         this.socket = socket;
         this.project = project;

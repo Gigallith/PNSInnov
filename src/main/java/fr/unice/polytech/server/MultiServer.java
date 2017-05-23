@@ -18,7 +18,7 @@ public class MultiServer {
 
     public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
-        Project project = new Project();
+        RimRequest project = new RimRequest();
         boolean listening = true;
         try {
             serverSocket = new ServerSocket(15555);
