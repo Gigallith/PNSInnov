@@ -14,7 +14,7 @@ import java.rmi.*;
 /**
  * @author Marion
  */
-public interface RimRequest extends Remote{
+public interface RmiRequest extends Remote{
 
     AddIdeaResult add(AddIdea addIdea) throws RemoteException;
     JoinIdeaResult join(JoinIdea joinIdea) throws RemoteException;

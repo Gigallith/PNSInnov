@@ -14,7 +14,7 @@ import java.util.HashSet;
 /**
  * Created by user on 23/05/2017.
  */
-public class RmiRequestImplement extends UnicastRemoteObject implements RimRequest {
+public class RmiRequestImplement extends UnicastRemoteObject implements RmiRequest {
     private final Project project;
 
     RmiRequestImplement(Project project) throws RemoteException {
